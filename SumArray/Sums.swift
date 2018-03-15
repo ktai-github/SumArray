@@ -18,6 +18,8 @@
 
 import Foundation
 
+//i hate github
+
 struct Sums {
   func sumItems(_ array: [Any]) -> Int {
     // Sum all numbers in the array
@@ -26,7 +28,7 @@ struct Sums {
 //      print(array.first as! Int)
 //      return array.first as! Int
 //    } else {
-//    go through each item in array       
+//    go through each item in array
       for item in array {
         
   //      item is an array of int
