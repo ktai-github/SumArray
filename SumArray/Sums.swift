@@ -21,6 +21,66 @@ import Foundation
 struct Sums {
   func sumItems(_ array: [Any]) -> Int {
     // Sum all numbers in the array
-    return -1
+//    if there is only one number in the array, return it
+//    if array.count == 1 {
+//      print(array.first as! Int)
+//      return array.first as! Int
+//    } else {
+      for item in array {
+        
+  //      item is an array of int
+        if item is [Int] {
+          print("int array")
+          let itemArray = item as! [Int]
+          
+          if itemArray.count == 1 {
+            print(itemArray.first as! Int)
+            return itemArray.first as! Int
+          }
+          
+  //        recurse if an item in the array is another array
+          return sumItems(_:item as! [Int])
+        
+  //      item is not an array
+        } else {
+          print(item as! Int)
+  //        new array from original array but without the first item
+          var newArray = array
+          newArray.remove(at: 0)
+  //        add the first item in original array to the sum of the new array
+  //        first item in the new array was removed so it's not added twice
+//          recurse with new array
+          return (item as! Int) + sumItems(_:newArray as! [Int])
+        }
+      }
+    return 0
   }
+  
 }
+
+//      switch item {
+//        case let [1] as [Int]:
+//          if x = 1 {
+//            return 1
+//          }
+//        }
+//      }
+//      let intItem = Int(item)!
+//      return item + sumItems(_:array)
+//    }
+//    var _arr = array
+//
+//    return Int(String(describing: _arr))!
+
+//    //    for _ in array {
+//      var intItem = Int(String(describing: _))
+//      return intItem!
+
+//      return intItem! + sumItems(_:[item])
+
+//      if let innerArray = item as? [Any] {
+//        return sumItems(innerArray)
+//      } else {
+//        return Int(String(describing: item))! + Int(String(describing: item))!
+//      }
+//    }
